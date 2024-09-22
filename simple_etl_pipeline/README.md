@@ -1,43 +1,4 @@
 # Simple ETL Pipeline with AWS CDK
-               ┌──────────────┐
-               │              │
-               │ Source Data  │
-               │  (Input)     │
-               │              │
-               └──────┬───────┘
-                      │
-                      │ Extract
-                      │
-                      ▼
-   ┌───────────┬──────────────────────────────┬───────────┐
-   │           │                              │           │
-   │           │  ┌────────────────────────┐  │           │
-   │           │  │  AWS Glue Job          │  │           │
-   │  IAM      │  │                        │  │           │
-   │           │  │ - Defined in           │  │           │
-   │Permissions│  │   `etl_scripts.py`     │  │           │
-   │           │  │ - Transforms data      │  │           │
-   │           │  │   from source          │  │           │
-   │           │  │ - Outputs to S3        │  │           │
-   │           │  └────────┬───────────────┘  │           │
-   │           │           │                  │           │
-   │           │           │ Transform        │           │
-   │           │           │                  │           │
-   └───────────┘           ▼                  └───────────┘
-                      ┌──────────┐
-                      │          │
-                      │ Amazon   │
-                      │   S3     │
-                      │          │
-                      ├──────────┤
-                      │  Raw     │
-                      │ Data     │
-                      ├──────────┤
-                      │ Processed│
-                      │ Data     │
-                      └──────────┘
-
-
 
 ## Overview
 
@@ -78,4 +39,6 @@ The Simple ETL Pipeline is designed to automate the process of extracting data f
    git clone https://github.com/yourusername/your-repo-name.git
    cd your-repo-name
 
+
+[Simple ETL Pipeline Diagram](./iamges/etl_diagram.png)
 
