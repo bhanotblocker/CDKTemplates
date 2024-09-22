@@ -1,4 +1,43 @@
 # Simple ETL Pipeline with AWS CDK
+               ┌──────────────┐
+               │              │
+               │ Source Data  │
+               │  (Input)     │
+               │              │
+               └──────┬───────┘
+                      │
+                      │ Extract
+                      │
+                      ▼
+   ┌───────────┬──────────────────────────────┬───────────┐
+   │           │                              │           │
+   │           │  ┌────────────────────────┐  │           │
+   │           │  │  AWS Glue Job          │  │           │
+   │  IAM      │  │                        │  │           │
+   │           │  │ - Defined in           │  │           │
+   │Permissions│  │   `etl_scripts.py`     │  │           │
+   │           │  │ - Transforms data      │  │           │
+   │           │  │   from source          │  │           │
+   │           │  │ - Outputs to S3        │  │           │
+   │           │  └────────┬───────────────┘  │           │
+   │           │           │                  │           │
+   │           │           │ Transform        │           │
+   │           │           │                  │           │
+   └───────────┘           ▼                  └───────────┘
+                      ┌──────────┐
+                      │          │
+                      │ Amazon   │
+                      │   S3     │
+                      │          │
+                      ├──────────┤
+                      │  Raw     │
+                      │ Data     │
+                      ├──────────┤
+                      │ Processed│
+                      │ Data     │
+                      └──────────┘
+
+
 
 ## Overview
 
