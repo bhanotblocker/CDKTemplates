@@ -40,5 +40,6 @@ The Simple ETL Pipeline is designed to automate the process of extracting data f
    cd your-repo-name
 
 
-[Simple ETL Pipeline Diagram](./iamges/etl_diagram.png)
+![Simple ETL Pipeline Diagram](./simple_etl_pipeline/images/etl_diagram.png)
+
 
